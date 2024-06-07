@@ -1,0 +1,112 @@
+﻿<mah:MetroWindow 
+        x:Class="WPF.Views.Delvers.DelverList"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF.Views.Delvers"
+        mc:Ignorable="d"
+        Title="Guide in Abyss" Height="768" Width="1024">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <UniformGrid Columns="8" Margin="20,20,20,0">
+            <WrapPanel VerticalAlignment="Center">
+                <Image Source="../../Utils/Img/Logo.png" Width="100" Margin="0,0,0,0"/>
+            </WrapPanel>
+            <Button Height="45" Width="120" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnUsuarios">Usuarios</Button>
+            <Button Height="45" Width="80" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnFauna">Fauna</Button>
+            <Button Height="45" Width="80" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnFlora">Flora</Button>
+            <Button Height="45" Width="150" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnArtefactos">Artefactos</Button>
+            <Button Height="45" Width="180" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}">Delvers</Button>
+            <Button Height="45" Width="150" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnSolicitudes">Solicitudes</Button>
+            <Button Height="45" Width="180" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnLogout">Logout</Button>
+        </UniformGrid>
+
+        <ScrollViewer Grid.Row="1" Margin="30, 10, 30, 0">
+            <StackPanel>
+                <Label Content="Delvers" FontSize="30" FontWeight="Bold" Foreground="DarkOrange"/>
+                <ListView Grid.Column="7" Name="delverListView" Margin="10">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="75">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader HorizontalContentAlignment="Center">
+                                        Imagen
+                                    </GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding Foto}" Width="75" Height="75" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Width="100">
+                                <GridViewColumn.Header>
+                                    <GridViewColumnHeader HorizontalContentAlignment="Center">
+                                        Nombre
+                                    </GridViewColumnHeader>
+                                </GridViewColumn.Header>
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Nombre}" FontFamily="Raleway" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Género">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Genero}" FontFamily="Raleway" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Especie">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Especie}" FontFamily="Raleway" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Estado">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Estado}" FontWeight="Bold" FontFamily="Raleway" HorizontalAlignment="Center"></TextBlock>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Rango (ID)" Width="75">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding RangoId}" FontFamily="Raleway" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+
+                            <GridViewColumn Header="Acción" Width="100">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Horizontal">
+                                            <Image Source="../../Utils/Img/Edit.png" Width="15" Height="15" Margin="16,0" MouseLeftButtonUp="BtnEdit"/>
+                                            <Image Source="../../Utils/Img/Delete.png" Width="15" Height="15" Margin="16,0" MouseLeftButtonUp="BtnDelete"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </StackPanel>
+        </ScrollViewer>
+        <Button x:Name="btnAdd" FontSize="22" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,50" Click="BtnAdd">Añadir</Button>
+    </Grid>
+</mah:MetroWindow>

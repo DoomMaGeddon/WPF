@@ -1,0 +1,67 @@
+﻿<mah:MetroWindow  x:Class="WPF.Views.Users.AddEditUser"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF.Views.Users"
+        mc:Ignorable="d"
+        Title="Guide in Abyss" Height="768" Width="1024">
+    <Grid>
+        <Grid Margin="30">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="lblTitle" Content="Añadir usuario" FontSize="40" FontWeight="Bold" Foreground="DarkOrange"/>
+            <Image Source="../../Utils/Img/ButtonClose.png" Width="40" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" MouseLeftButtonUp="BtnClose"/>
+
+            <Label Content="Nombre de usuario" FontSize="15" Grid.Row="1" Margin="10" Target="{Binding ElementName=txtUsername}"/>
+            <TextBox x:Name="txtUsername" Height="40" Grid.Row="1" Margin="10,10,10,50" VerticalAlignment="Bottom"/>
+
+            <Label Content="Email" FontSize="15" Grid.Row="1" Grid.Column="1" Margin="10" Target="{Binding ElementName=txtEmail}"/>
+            <TextBox x:Name="txtEmail" Height="40" Grid.Row="1" Grid.Column="1" Margin="10,10,10,50" VerticalAlignment="Bottom"/>
+
+            <Label Content="Rol" FontSize="15" Grid.Row="1" Grid.Column="2" Margin="10" Target="{Binding ElementName=cbRole}"/>
+            <ComboBox x:Name="cbRole" Height="40" Grid.Row="1" Grid.Column="2"  Margin="10,10,10,50" VerticalAlignment="Bottom" SelectedIndex="2">
+                <ComboBoxItem Tag="Admin">Admin</ComboBoxItem>
+                <ComboBoxItem Tag="Científico">Científico</ComboBoxItem>
+                <ComboBoxItem Tag="Estándar">Estándar</ComboBoxItem>
+            </ComboBox>
+
+            <Label Content="Descripción" FontSize="15" Grid.Row="2" Margin="10" Target="{Binding ElementName=txtDescription}"/>
+            <TextBox x:Name="txtDescription" Height="80" Grid.Row="2" Margin="10" VerticalAlignment="Bottom" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+
+            <Label Content="Experiencia" FontSize="15" Grid.Row="2" Grid.Column="1" Margin="10" Target="{Binding ElementName=upDownExperience}"/>
+            <mah:NumericUpDown x:Name="upDownExperience" Height="40" Grid.Row="2" Grid.Column="1" Margin="10,10,10,50" VerticalAlignment="Bottom" Value="0" Interval="10" Minimum="0" Maximum="2147483646"/>
+
+            <Label Content="Rango" FontSize="15" Grid.Row="2" Grid.Column="2" Margin="10" Target="{Binding ElementName=cbRank}"/>
+            <ComboBox x:Name="cbRank" Height="40" Grid.Row="2" Grid.Column="2" Margin="10,10,10,50" VerticalAlignment="Bottom" SelectedIndex="0">
+                <ComboBoxItem Tag="none">Ninguno</ComboBoxItem>
+                <ComboBoxItem Tag="bell">Cascabel</ComboBoxItem>
+                <ComboBoxItem Tag="red">Silbato rojo</ComboBoxItem>
+                <ComboBoxItem Tag="blue">Silbato azul</ComboBoxItem>
+                <ComboBoxItem Tag="moon">Silbato lunar</ComboBoxItem>
+                <ComboBoxItem Tag="black">Silbato negro</ComboBoxItem>
+                <ComboBoxItem Tag="white">Silbato blanco</ComboBoxItem>
+            </ComboBox>
+
+            <Label Content="Contraseña" FontSize="15" Grid.Row="3" Margin="10" Target="{Binding ElementName=txtPass}"/>
+            <PasswordBox x:Name="txtPassword" Height="40" Grid.Row="3" Margin="10,10,10,50" VerticalAlignment="Bottom"/>
+
+            <Label Content="Notificaciones" FontSize="15" Grid.Row="3" Grid.Column="1" Margin="10" Target="{Binding ElementName=switchNotifications}"/>
+            <mah:ToggleSwitch x:Name="switchNotifications" Grid.Row="3" Grid.Column="1" Margin="10,10,10,60" VerticalAlignment="Bottom" IsOn="True"/>
+
+            <Button Height="40" Width="120" FontSize="15" Grid.Row="4" Grid.Column="2" Background="DarkOrange" BorderBrush="{x:Null}" Content="Enviar" Margin="130,50,0,0" Click="BtnEnviar"/>
+        </Grid>
+    </Grid>
+</mah:MetroWindow>

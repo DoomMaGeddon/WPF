@@ -1,0 +1,51 @@
+﻿<mah:MetroWindow 
+        x:Class="WPF.Views.Requests"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF.Views"
+        mc:Ignorable="d"
+        Title="Guide in Abyss" Height="768" Width="1024">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <UniformGrid Columns="8" Margin="20,20,20,0">
+            <WrapPanel VerticalAlignment="Center">
+                <Image Source="../Utils/Img/Logo.png" Width="100" Margin="0,0,0,0"/>
+            </WrapPanel>
+            <Button Height="45" Width="120" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnUsuarios">Usuarios</Button>
+            <Button Height="45" Width="80" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnFauna">Fauna</Button>
+            <Button Height="45" Width="80" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnFlora">Flora</Button>
+            <Button Height="45" Width="150" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnArtefactos">Artefactos</Button>
+            <Button Height="45" Width="180" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnExploradores">Delvers</Button>
+            <Button Height="45" Width="150" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}">Solicitudes</Button>
+            <Button Height="45" Width="180" FontWeight="Bold" FontSize="15" Background="{x:Null}" BorderBrush="{x:Null}"  Click="BtnLogout">Logout</Button>
+        </UniformGrid>
+
+        <StackPanel Grid.Row="1" Margin="30, 10, 30, 0">
+            <Label Content="Solicitudes" FontSize="30" FontWeight="Bold" Foreground="DarkOrange"/>
+            <ListBox x:Name="requestListBox" BorderBrush="{x:Null}" HorizontalAlignment="Center" Height="485">
+                <ListBox.ItemTemplate>
+                    <ItemContainerTemplate>
+                        <UniformGrid Background="#ECECEC" Columns="5" Width="700" Margin="10">
+                            <Label x:Name="requestId" FontSize="15" Content="{Binding Id}" VerticalAlignment="Center"/>
+                            <Label x:Name="requestEmail" FontSize="15" Content="{Binding EmailUsuario}" VerticalAlignment="Center"/>
+                            <Label x:Name="requestDate" FontSize ="15" Content="{Binding Fecha}" VerticalAlignment="Center"/>
+                            <Label x:Name="requestDescription" FontSize ="15" Content="{Binding Descripcion}" VerticalAlignment="Center"/>
+                            <StackPanel>
+                                <Button Height="30" Width="120" Background="#68EB9C" BorderBrush="{x:Null}" Content="Aprobar" Margin="0,0,0,0" Click="BtnApprove"/>
+                                <Button Height="30" Width="120" Background="#FC6E6E" BorderBrush="{x:Null}" Content="Rechazar" Margin="0,15,0,10" Click="BtnReject"/>
+                            </StackPanel>
+                        </UniformGrid>
+                    </ItemContainerTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

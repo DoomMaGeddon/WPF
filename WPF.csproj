@@ -1,0 +1,40 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Utils\Img\Abyss.png" />
+    <None Remove="Utils\Img\ButtonClose.png" />
+    <None Remove="Utils\Img\Delete.png" />
+    <None Remove="Utils\Img\Edit.png" />
+    <None Remove="Utils\Img\Logo.png" />
+    <None Remove="Utils\Img\Pen.png" />
+    <None Remove="Utils\Img\Unknown.png" />
+    <None Remove="Utils\Img\User.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.6" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Npgsql" Version="8.0.3" />
+    <PackageReference Include="SQLite" Version="3.13.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Utils\Img\Abyss.png" />
+    <Resource Include="Utils\Img\ButtonClose.png" />
+    <Resource Include="Utils\Img\Delete.png" />
+    <Resource Include="Utils\Img\Edit.png" />
+    <Resource Include="Utils\Img\Logo.png" />
+    <Resource Include="Utils\Img\Unknown.png" />
+    <Resource Include="Utils\Img\User.png" />
+  </ItemGroup>
+
+</Project>
