@@ -86,6 +86,13 @@ namespace WPF.Views.Users
                 MessageBox.Show("El usuario nuevo debe tener al menos un email válido, un nombre de usuario de máximo 12 caracteres, y una contraseña de al menos 8 caracteres", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 _loading = false;
                 return;
+            } else if (Edit && (
+                txtUsername.Text.Length == 0 || txtUsername.Text.Length > 12
+                )
+            ) {
+                MessageBox.Show("El usuario nuevo debe tener al menos un email válido, un nombre de usuario de máximo 12 caracteres, y una contraseña de al menos 8 caracteres", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                _loading = false;
+                return;
             }
 
             bool result;

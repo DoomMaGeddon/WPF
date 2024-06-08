@@ -129,6 +129,10 @@ namespace WPF.Views.Users
                         cmdSqlite.ExecuteNonQuery();
                     }
 
+                    using (SqliteCommand cmdSqlite = new("DELETE FROM usuarios", connSqlite)) {
+                        cmdSqlite.ExecuteNonQuery();
+                    }
+
                     using NpgsqlCommand cmdPg = new("SELECT * FROM usuarios", connPg);
 
                     using NpgsqlDataReader reader = cmdPg.ExecuteReader();
