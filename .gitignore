@@ -1,2 +1,4 @@
 ﻿.vs/
 ./Utils/backup.db
+bin/
+obj/
