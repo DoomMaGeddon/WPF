@@ -34,7 +34,7 @@ namespace WPF.Views {
         public Requests() {
             InitializeComponent();
 
-            Load();
+            //Load();
 
             requestListBox.ItemsSource = solicitudes;
             DataContext = this;
@@ -45,7 +45,7 @@ namespace WPF.Views {
             List<Request> requests = await RequestProvider.GetRequestList();
 
             if (requests.Count == 0) {
-                Close(); return;
+                return;
             }
 
             foreach (var item in requests) {
