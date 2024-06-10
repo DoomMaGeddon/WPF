@@ -79,13 +79,12 @@ namespace WPF.Views.Artifacts {
 
             Regex emailRegex = MyRegex();
 
-            if (!Edit && (
+            if (
                 txtName.Text.Length == 0 || txtName.Text.Length > 100
                 || txtEffect.Text.Length == 0
                 || txtDescription.Text.Length == 0
                 || (txtOwnerId.Text.Length > 0 && !IDsExploradores!.Contains(txtOwnerId.Text))
                 || (!emailRegex.IsMatch(txtCreatorEmail.Text) && switchOriginal.IsOn)
-                )
             ) {
                 MessageBox.Show("""
                     El nombre del artefacto debe tener entre 1 y 100 caracteres.

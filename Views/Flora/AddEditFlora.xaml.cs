@@ -59,12 +59,11 @@ namespace WPF.Views.Flora {
 
             Regex emailRegex = MyRegex();
 
-            if (!Edit && (
+            if (
                 txtName.Text.Length == 0 || txtName.Text.Length > 100
                 || txtSpecies.Text.Length == 0 || txtSpecies.Text.Length > 50
                 || txtDescription.Text.Length == 0
                 || (!emailRegex.IsMatch(txtCreatorEmail.Text) && switchOriginal.IsOn)
-                )
             ) {
                 MessageBox.Show("""
                     El nombre de la planta debe tener entre 1 y 100 caracteres.

@@ -62,14 +62,13 @@ namespace WPF.Views.Fauna {
 
             Regex emailRegex = MyRegex();
 
-            if (!Edit && (
+            if (
                 txtName.Text.Length == 0 || txtName.Text.Length > 100
                 || txtSpecies.Text.Length == 0 || txtSpecies.Text.Length > 50 
                 || txtDanger.Text.Length == 0 || txtDanger.Text.Length > 50
                 || txtDiet.Text.Length > 20
                 || txtDescription.Text.Length == 0
                 || (!emailRegex.IsMatch(txtCreatorEmail.Text) && switchOriginal.IsOn)
-                )
             ) {
                 MessageBox.Show("""
                     El nombre del animal debe tener entre 1 y 100 caracteres.

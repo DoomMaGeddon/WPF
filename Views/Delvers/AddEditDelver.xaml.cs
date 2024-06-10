@@ -68,13 +68,12 @@ namespace WPF.Views.Delvers {
 
             Regex emailRegex = MyRegex();
 
-            if (!Edit && (
+            if (
                 txtName.Text.Length == 0 || txtName.Text.Length > 100
                 || txtGender.Text.Length == 0 || txtGender.Text.Length > 10
                 || txtSpecies.Text.Length == 0 || txtSpecies.Text.Length > 100
                 || txtStatus.Text.Length == 0 || txtStatus.Text.Length > 50
                 || (!emailRegex.IsMatch(txtCreatorEmail.Text) && switchOriginal.IsOn)
-                )
             ) {
                 MessageBox.Show("""
                     El nombre del explorador debe tener entre 1 y 100 caracteres.
